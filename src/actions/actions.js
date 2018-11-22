@@ -1,3 +1,11 @@
-export const ADD_TASK = 'ADD_TASK';
-export const CHECK_TASK = 'CHECK_TASK';
-export const REMOVE_TASK = 'REMOVE_TASK';
+import {ADD_TASK, CHANGE_TASK, DELETE_TASK} from "./types";
+
+
+
+export const Add_task = (data) => dispatch =>{
+  dispatch({
+      actions: ADD_TASK,
+      payload: data
+  })
+};
+

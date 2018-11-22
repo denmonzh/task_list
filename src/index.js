@@ -13,5 +13,5 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 
-
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
