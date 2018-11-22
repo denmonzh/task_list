@@ -1,4 +1,4 @@
-import {ADD_TASK, CHANGE_TASK, DELETE_TASK} from "../actions/types";
+import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK} from "../actions/types";
 
 const initialState = {
     task: [],
@@ -18,7 +18,6 @@ export default function TaskReducer(state = initialState, actions) {
 
         case DELETE_TASK:
             const find_delete_index  = state.task.findIndex(element => element.id === actions.payload);
-            console.log(find_delete_index);
             state.task.splice(find_delete_index, 1);
             return{
                 ...state,
@@ -26,9 +25,16 @@ export default function TaskReducer(state = initialState, actions) {
             };
 
         case CHANGE_TASK:
-            console.log(actions.payload);
+
             const find_change_index = state.task.findIndex(element => element.id === actions.payload.id);
             state.task.splice(find_change_index, 1, actions.payload);
+            return{
+                ...state,
+                task: [...state.task]
+            };
+        case CHECK_TASK:
+            const find_index_status = state.task.findIndex(element => element.id === actions.payload);
+            state.task[find_index_status].status = true;
             return{
                 ...state,
                 task: [...state.task]
