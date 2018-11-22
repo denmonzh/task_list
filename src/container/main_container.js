@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 import AddTask from '../components/add_task/index'
 import {Add_task} from "../actions/actions";
 import {Delete_task} from "../actions/actions";
+import {Change_task} from "../actions/actions";
 import Task from '../components/task/index'
 
 class MainContainer extends Component {
     render() {
 
-        const {Add_task, Delete_task} = this.props;
+        const {Add_task, Delete_task, Change_task} = this.props;
         const {task_form} = this.props;
 
 
@@ -27,6 +28,7 @@ class MainContainer extends Component {
                                 <Task
                                     item = {item}
                                     Delete_task = {Delete_task}
+                                    Change_task = {Change_task}
                                 />
                             </div>
                         ))
@@ -47,7 +49,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return {
         Add_task: (data) => dispatch(Add_task(data)),
-        Delete_task: (id) => dispatch(Delete_task(id))
+        Delete_task: (id) => dispatch(Delete_task(id)),
+        Change_task: (data) => dispatch(Change_task(data))
     }
 };
 

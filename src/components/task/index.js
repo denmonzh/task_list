@@ -16,7 +16,7 @@ class Task extends Component {
 
 
     render() {
-        const {item, Delete_task} = this.props;
+        const {item, Delete_task, Change_task} = this.props;
         const {readOnly} = this.state;
 
 
@@ -26,6 +26,7 @@ class Task extends Component {
                     item={item}
                     readOnly = {readOnly}
                     handleChangeRead = {this.handleChangeRead}
+                    Change_task = {Change_task}
                 />
                 <TaskControl
                     item = {item}

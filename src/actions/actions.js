@@ -15,3 +15,11 @@ export const Delete_task = (id) => dispatch =>{
       payload: id
   })
 };
+
+
+export const Change_task = (data) => dispatch =>{
+  dispatch({
+      type:CHANGE_TASK,
+      payload: data,
+  })
+};

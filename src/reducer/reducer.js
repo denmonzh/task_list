@@ -24,6 +24,16 @@ export default function TaskReducer(state = initialState, actions) {
                 ...state,
                 task: [...state.task]
             };
+
+        case CHANGE_TASK:
+            console.log(actions.payload);
+            const find_change_index = state.task.findIndex(element => element.id === actions.payload.id);
+            state.task.splice(find_change_index, 1, actions.payload);
+            return{
+                ...state,
+                task: [...state.task]
+            };
+
         default:
             return {
                 ...state

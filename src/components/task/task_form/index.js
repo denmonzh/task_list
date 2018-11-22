@@ -9,6 +9,22 @@ class TaskForm extends Component {
         description: this.props.item.description
     };
 
+    handleChangeTask = (e) =>{
+        const {item, Change_task, handleChangeRead} = this.props;
+        e.preventDefault();
+        const new_data = {
+            id: item.id,
+            title: e.target.title.value,
+            description: e.target.description.value,
+            status: item.status,
+            time: item.time,
+            timer: item.timer,
+        };
+        Change_task(new_data);
+        handleChangeRead()
+    };
+
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: [e.target.value]
@@ -21,7 +37,7 @@ class TaskForm extends Component {
         const {readOnly} = this.props;
 
         return (
-            <form className='main_task_form_container'>
+            <form className='main_task_form_container' onSubmit={this.handleChangeTask}>
                 <div className='title_form_container'>
                     <input
                         value={title}

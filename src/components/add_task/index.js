@@ -61,7 +61,7 @@ class AddTask extends Component {
                         <AddIcon />
                     </Button>
                 </div>
-                <Modal open={open} onClose={this.handleOpen} className='modal_container' style={{position:'relative'}}>
+                <Modal open={open} onClose={this.handleOpen} className='modal_container' style={{display:'flex', alignItems:'center'}}>
                     <form className='modal_form' onSubmit={this.handleAddTask}>
                         <div className='modal_form_container'>
                             <div className='form_add_task_text'>

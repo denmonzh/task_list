@@ -7,7 +7,6 @@ import './style.css'
 class TaskControl extends Component {
     render() {
         const {handleChangeRead, Delete_task, item} = this.props;
-        console.log(item.id);
         return (
             <div className='form_control_container'>
                 <div>
