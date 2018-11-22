@@ -5,9 +5,14 @@ import {Add_task} from "../actions/actions";
 
 class MainContainer extends Component {
     render() {
+
+        const {Add_task} = this.props;
+
         return (
             <div className='main_container'>
-                <AddTask/>
+                <AddTask
+                    Add_task = {Add_task}
+                />
             </div>
         );
     }
