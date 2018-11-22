@@ -9,3 +9,9 @@ export const Add_task = (data) => dispatch =>{
   })
 };
 
+export const Delete_task = (id) => dispatch =>{
+  dispatch({
+      type: DELETE_TASK,
+      payload: id
+  })
+};

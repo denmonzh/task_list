@@ -29,14 +29,18 @@ class AddTask extends Component {
             const {Add_task} = this.props;
             const data = {
                 id: this.state.id,
-                name: e.target.title.value,
-                description: e.target.description.name,
+                title: e.target.title.value,
+                description: e.target.description.value,
                 time: null,
                 status: false,
                 timer: false
             };
             Add_task(data);
-            this.setState({open:false})
+            this.setState({
+                title: '',
+                description: '',
+                open:false
+            })
         }
     };
 
@@ -52,9 +56,11 @@ class AddTask extends Component {
 
         return (
             <div>
-                <Button variant="fab" color="primary" aria-label="Add" onClick = {this.handleOpen} className='add_button'>
-                    <AddIcon />
-                </Button>
+                <div className='add_task_button'>
+                    <Button variant="fab" color="primary" aria-label="Add" onClick = {this.handleOpen} className='add_button'>
+                        <AddIcon />
+                    </Button>
+                </div>
                 <Modal open={open} onClose={this.handleOpen} className='modal_container' style={{position:'relative'}}>
                     <form className='modal_form' onSubmit={this.handleAddTask}>
                         <div className='modal_form_container'>

@@ -2,6 +2,11 @@
     padding: 5%;
 }
 
+
+.add_task_button{
+    padding: 2%;
+}
+
 .modal_form{
     height: 420px;
     width: 320px;

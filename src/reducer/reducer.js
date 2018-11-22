@@ -9,9 +9,20 @@ const initialState = {
 export default function TaskReducer(state = initialState, actions) {
     switch (actions.type) {
         case ADD_TASK:
-            console.log(actions.payload);
+            const id = state.task.length + 1;
+            actions.payload.id  = id;
             return {
-                ...state
+                ...state,
+                task:[...state.task, actions.payload]
+            };
+
+        case DELETE_TASK:
+            const find_delete_index  = state.task.findIndex(element => element.id === actions.payload);
+            console.log(find_delete_index);
+            state.task.splice(find_delete_index, 1);
+            return{
+                ...state,
+                task: [...state.task]
             };
         default:
             return {
