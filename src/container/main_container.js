@@ -19,7 +19,7 @@ class MainContainer extends Component {
 
 
     onDragEnd = result => {
-        if(!result.destination) {
+        if (!result.destination) {
             return;
         }
         const items = reorder(
@@ -27,6 +27,7 @@ class MainContainer extends Component {
             result.source.index,
             result.destination.index
         );
+        console.log(result.source.index, result.destination.index);
         const {Change_Priority} = this.props;
         Change_Priority(items)
     };
@@ -34,7 +35,7 @@ class MainContainer extends Component {
     render() {
 
         const {Add_task, Delete_task, Change_task, Check_Task, Start_timer, Stop_timer} = this.props;
-        const {task_form, timer, taskProcess} = this.props;
+        const {task_form, timer, taskProcess, task_time_process} = this.props;
 
         return (
             <div className='main_container'>
@@ -55,12 +56,12 @@ class MainContainer extends Component {
                     task_form.length === 0 ?
                         (
                             <WaitingTask/>
-                        ):
+                        ) :
                         (
                             <DragDropContext onDragEnd={this.onDragEnd}>
                                 <Droppable droppableId='1'>
                                     {
-                                        (provided)=> (
+                                        (provided) => (
                                             <div
                                                 ref={provided.innerRef}
                                                 {...provided.droppableProps}
@@ -69,7 +70,7 @@ class MainContainer extends Component {
                                                     task_form.map((item, index) => (
                                                         <div key={item.id}>
                                                             <Task
-                                                                index = {index}
+                                                                index={index}
                                                                 item={item}
                                                                 Delete_task={Delete_task}
                                                                 Change_task={Change_task}
@@ -78,6 +79,7 @@ class MainContainer extends Component {
                                                                 Stop_timer={Stop_timer}
                                                                 general_timer={timer}
                                                                 taskProcess={taskProcess}
+                                                                task_time_process={task_time_process}
                                                             />
                                                         </div>
                                                     ))
@@ -98,7 +100,7 @@ class MainContainer extends Component {
 const mapStateToProps = state => ({
     task_form: state.task_action.task,
     timer: state.task_action.timer,
-    taskProcess: state.task_action.taskProcess
+    taskProcess: state.task_action.taskProcess,
 });
 
 
@@ -110,7 +112,7 @@ const mapDispatchToProps = dispatch => {
         Check_Task: (id) => dispatch(Check_Task(id)),
         Start_timer: (id) => dispatch(Start_timer(id)),
         Stop_timer: (time, id) => dispatch(Stop_timer(time, id)),
-        Change_Priority: (new_data)=>dispatch(Change_Priority(new_data))
+        Change_Priority: (new_data) => dispatch(Change_Priority(new_data))
     }
 };
 

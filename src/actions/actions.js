@@ -51,6 +51,6 @@ export const Stop_timer = (time, id) => dispatch =>{
 export const Change_Priority = (new_data) => dispatch =>{
    dispatch({
        type: CHANGE_PRIORITY,
-       payload: new_data
+       payload: new_data,
    })
 } ;

@@ -68,7 +68,7 @@ class Timer extends Component {
 
         let button_start;
         let button_stop;
-        const {general_timer, item, taskProcess} = this.props;
+        const {general_timer, item} = this.props;
         if (general_timer && !item.timer){
             button_start =
                 (
@@ -82,7 +82,7 @@ class Timer extends Component {
                 button_start =
                     (
                         <div>
-                            <span>Task {taskProcess} in process</span>
+                            <span>Task in process</span>
                         </div>
                     )
 

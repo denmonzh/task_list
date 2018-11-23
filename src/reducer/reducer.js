@@ -3,7 +3,7 @@ import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK, START_TIMER, STOP_TIMER,
 const initialState = {
     task: [],
     taskProcess: null,
-    timer: true
+    timer: true,
 };
 
 
@@ -49,7 +49,8 @@ export default function TaskReducer(state = initialState, actions) {
                 ...state,
                 task:[...state.task],
                 timer: false,
-                taskProcess: state.taskProcess
+                taskProcess: state.taskProcess,
+                task_time_process: find_index_start
             };
         case  STOP_TIMER:
             const find_index_stop = state.task.findIndex(element => element.id === actions.id);
@@ -59,13 +60,15 @@ export default function TaskReducer(state = initialState, actions) {
                 ...state,
                 task: [...state.task],
                 timer: true,
-                taskProcess: null
+                taskProcess: null,
+                task_time_process: null
             };
         case CHANGE_PRIORITY:
+
             state.task = actions.payload;
             return{
                 ...state,
-                task:[...state.task]
+                task:[...state.task],
             };
         default:
             return {
