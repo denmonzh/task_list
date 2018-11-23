@@ -1,4 +1,4 @@
-import {ADD_TASK, CHANGE_TASK, CHECK_TASK, DELETE_TASK, START_TIMER, STOP_TIMER, CHANGE_PRIORITY} from "./types";
+import {ADD_TASK, CHANGE_TASK, CHECK_TASK, DELETE_TASK, START_TIMER, STOP_TIMER, CHANGE_PRIORITY, UNMOUNT_TASK} from "./types";
 
 
 export const Add_task = (data) => dispatch => {
@@ -54,3 +54,10 @@ export const Change_Priority = (new_data) => dispatch =>{
        payload: new_data,
    })
 } ;
+
+
+export const Unmount_task = () => dispatch =>{
+  dispatch({
+      type: UNMOUNT_TASK
+  })
+};

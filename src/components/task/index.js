@@ -22,7 +22,7 @@ class Task extends Component {
 
     render() {
         const {item, Delete_task, Change_task,
-            Check_Task, Start_timer, Stop_timer,
+            Check_Task, Start_timer, Stop_timer,Unmount_task,
             general_timer, taskProcess, task_time_process} = this.props;
 
         const {readOnly} = this.state;
@@ -58,6 +58,7 @@ class Task extends Component {
                                     Check_Task={Check_Task}
                                 />
                                 <Timer
+                                    Unmount_task = {Unmount_task}
                                     item={item}
                                     index = {this.props.index}
                                     Start_timer={Start_timer}

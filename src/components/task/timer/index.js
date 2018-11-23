@@ -47,8 +47,11 @@ class Timer extends Component {
         }
     }
 
+
     componentWillUnmount(){
-        clearInterval(this.state.timerId)
+        clearInterval(this.state.timerId);
+        const {Unmount_task} = this.props;
+        Unmount_task()
     }
 
     handleCountStop = () => {
