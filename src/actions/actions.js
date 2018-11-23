@@ -1,4 +1,4 @@
-import {ADD_TASK, CHANGE_TASK, CHECK_TASK, DELETE_TASK, START_TIMER, STOP_TIMER} from "./types";
+import {ADD_TASK, CHANGE_TASK, CHECK_TASK, DELETE_TASK, START_TIMER, STOP_TIMER, CHANGE_PRIORITY} from "./types";
 
 
 export const Add_task = (data) => dispatch => {
@@ -47,3 +47,10 @@ export const Stop_timer = (time, id) => dispatch =>{
       id: id
   })
 };
+
+export const Change_Priority = (new_data) => dispatch =>{
+   dispatch({
+       type: CHANGE_PRIORITY,
+       payload: new_data
+   })
+} ;

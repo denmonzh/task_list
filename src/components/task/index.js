@@ -8,6 +8,7 @@ import Timer from './timer/index'
 import {Draggable} from 'react-beautiful-dnd'
 
 
+
 class Task extends Component {
     state = {
         readOnly: true
@@ -22,10 +23,10 @@ class Task extends Component {
     render() {
         const {item, Delete_task, Change_task, Check_Task, Start_timer, Stop_timer, general_timer, taskProcess} = this.props;
         const {readOnly} = this.state;
-
+        console.log(item);
 
         return (
-            <Draggable draggableId={item.id} index={this.props.index}>
+            <Draggable  draggableId={item.id} index={this.props.index}>
                 {
                     provider => (
                         <div

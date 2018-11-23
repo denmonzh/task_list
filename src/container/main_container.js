@@ -7,13 +7,25 @@ import {Change_task} from "../actions/actions";
 import {Check_Task} from '../actions/actions'
 import {Start_timer} from '../actions/actions'
 import {Stop_timer} from '../actions/actions'
+import {Change_Priority} from '../actions/actions'
+import {reorder} from "./reorder/reorder";
 import Task from '../components/task/index'
 import {DragDropContext, Droppable} from 'react-beautiful-dnd'
 
 class MainContainer extends Component {
 
+
     onDragEnd = result => {
-        ///
+        if(!result.destination) {
+            return;
+        }
+        const items = reorder(
+            this.props.task_form,
+            result.source.index,
+            result.destination.index
+        );
+        const {Change_Priority} = this.props;
+        Change_Priority(items)
     };
 
     render() {
@@ -78,7 +90,8 @@ const mapDispatchToProps = dispatch => {
         Change_task: (data) => dispatch(Change_task(data)),
         Check_Task: (id) => dispatch(Check_Task(id)),
         Start_timer: (id) => dispatch(Start_timer(id)),
-        Stop_timer: (time, id) => dispatch(Stop_timer(time, id))
+        Stop_timer: (time, id) => dispatch(Stop_timer(time, id)),
+        Change_Priority: (new_data)=>dispatch(Change_Priority(new_data))
     }
 };
 

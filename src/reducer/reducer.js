@@ -1,4 +1,4 @@
-import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK, START_TIMER, STOP_TIMER} from "../actions/types";
+import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK, START_TIMER, STOP_TIMER, CHANGE_PRIORITY} from "../actions/types";
 
 const initialState = {
     task: [],
@@ -60,6 +60,12 @@ export default function TaskReducer(state = initialState, actions) {
                 task: [...state.task],
                 timer: true,
                 taskProcess: null
+            };
+        case CHANGE_PRIORITY:
+            state.task = actions.payload;
+            return{
+                ...state,
+                task:[...state.task]
             };
         default:
             return {
