@@ -1,0 +1,7 @@
+.task_number_container{
+    width: 10%;
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+}

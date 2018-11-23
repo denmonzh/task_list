@@ -1,0 +1,42 @@
+.main_task_form_container{
+    display: flex;
+    padding-left: 5%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%
+}
+
+.title_task_form{
+    border: none;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.textarea_form_container{
+    width: 100%;
+    padding-top: 5%;
+}
+
+.button_save_container{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.description_task_form{
+    width: 100%;
+    overflow: auto;
+    border: none;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.title_form_container{
+    width: 100%;
+    text-align: center;
+    padding-top: 5%;
+}
