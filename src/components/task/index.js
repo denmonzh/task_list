@@ -18,7 +18,7 @@ class Task extends Component {
 
 
     render() {
-        const {item, Delete_task, Change_task, Check_Task} = this.props;
+        const {item, Delete_task, Change_task, Check_Task, Start_timer, Stop_timer, general_timer, taskProcess} = this.props;
         const {readOnly} = this.state;
 
 
@@ -40,7 +40,11 @@ class Task extends Component {
                     Check_Task = {Check_Task}
                 />
                 <Timer
-
+                    item = {item}
+                    Start_timer = {Start_timer}
+                    Stop_timer = {Stop_timer}
+                    general_timer = {general_timer}
+                    taskProcess = {taskProcess}
                 />
             </Paper>
         );

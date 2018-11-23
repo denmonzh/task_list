@@ -1,0 +1,7 @@
+.timer_main_container{
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

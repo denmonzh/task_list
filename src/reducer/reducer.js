@@ -1,8 +1,9 @@
-import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK} from "../actions/types";
+import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK, START_TIMER, STOP_TIMER} from "../actions/types";
 
 const initialState = {
     task: [],
-    timer: false
+    taskProcess: null,
+    timer: true
 };
 
 
@@ -40,6 +41,26 @@ export default function TaskReducer(state = initialState, actions) {
                 task: [...state.task]
             };
 
+        case START_TIMER:
+            const find_index_start = state.task.findIndex(element => element.id === actions.payload);
+            state.task[find_index_start].timer = true;
+            state.taskProcess = actions.payload;
+            return{
+                ...state,
+                task:[...state.task],
+                timer: false,
+                taskProcess: state.taskProcess
+            };
+        case  STOP_TIMER:
+            const find_index_stop = state.task.findIndex(element => element.id === actions.id);
+            state.task[find_index_stop].time = actions.payload;
+            state.task[find_index_stop].timer = false;
+            return{
+                ...state,
+                task: [...state.task],
+                timer: true,
+                taskProcess: null
+            };
         default:
             return {
                 ...state

@@ -5,13 +5,16 @@ import {Add_task} from "../actions/actions";
 import {Delete_task} from "../actions/actions";
 import {Change_task} from "../actions/actions";
 import {Check_Task} from '../actions/actions'
+import {Start_timer} from '../actions/actions'
+import {Stop_timer} from '../actions/actions'
 import Task from '../components/task/index'
 
 class MainContainer extends Component {
     render() {
 
-        const {Add_task, Delete_task, Change_task, Check_Task} = this.props;
-        const {task_form,timer} = this.props;
+        const {Add_task, Delete_task, Change_task, Check_Task, Start_timer, Stop_timer} = this.props;
+        const {task_form,timer,taskProcess} = this.props;
+
 
 
 
@@ -31,6 +34,10 @@ class MainContainer extends Component {
                                     Delete_task = {Delete_task}
                                     Change_task = {Change_task}
                                     Check_Task = {Check_Task}
+                                    Start_timer = {Start_timer}
+                                    Stop_timer = {Stop_timer}
+                                    general_timer = {timer}
+                                    taskProcess = {taskProcess}
                                 />
                             </div>
                         ))
@@ -43,7 +50,8 @@ class MainContainer extends Component {
 
 const mapStateToProps = state => ({
     task_form: state.task_action.task,
-    timer: state.task_action.timer
+    timer: state.task_action.timer,
+    taskProcess: state.task_action.taskProcess
 });
 
 
@@ -53,7 +61,9 @@ const mapDispatchToProps = dispatch => {
         Add_task: (data) => dispatch(Add_task(data)),
         Delete_task: (id) => dispatch(Delete_task(id)),
         Change_task: (data) => dispatch(Change_task(data)),
-        Check_Task: (id) => dispatch(Check_Task(id))
+        Check_Task: (id) => dispatch(Check_Task(id)),
+        Start_timer: (id) => dispatch(Start_timer(id)),
+        Stop_timer: (time, id) => dispatch(Stop_timer(time, id))
     }
 };
 
