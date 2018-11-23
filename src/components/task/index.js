@@ -42,6 +42,7 @@ class Task extends Component {
                                     Change_task={Change_task}
                                 />
                                 <TaskControl
+                                    readOnly = {readOnly}
                                     item={item}
                                     Delete_task={Delete_task}
                                     handleChangeRead={this.handleChangeRead}

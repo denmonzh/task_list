@@ -82,7 +82,7 @@ class Timer extends Component {
                 button_start =
                     (
                         <div>
-                            <span>{taskProcess} task in process</span>
+                            <span>Task {taskProcess} in process</span>
                         </div>
                     )
 

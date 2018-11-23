@@ -35,6 +35,9 @@ class TaskForm extends Component {
 
         const {title, description} = this.state;
         const {readOnly} = this.props;
+        let cursor;
+
+        readOnly ? cursor='default' : cursor='text';
 
         return (
             <form className='main_task_form_container' onSubmit={this.handleChangeTask}>
@@ -44,6 +47,7 @@ class TaskForm extends Component {
                         className='title_task_form'
                         onChange={this.handleChange}
                         name='title'
+                        style={{cursor}}
                         readOnly={readOnly}
                     />
                 </div>
@@ -53,6 +57,7 @@ class TaskForm extends Component {
                         className='description_task_form'
                         onChange={this.handleChange}
                         name='description'
+                        style={{cursor}}
                         readOnly={readOnly}
                     />
                 </div>

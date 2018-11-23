@@ -11,6 +11,9 @@ import {Change_Priority} from '../actions/actions'
 import {reorder} from "./reorder/reorder";
 import Task from '../components/task/index'
 import {DragDropContext, Droppable} from 'react-beautiful-dnd'
+import WaitingTask from '../components/waiting_the_task/index'
+
+import './style.css'
 
 class MainContainer extends Component {
 
@@ -35,42 +38,58 @@ class MainContainer extends Component {
 
         return (
             <div className='main_container'>
-                <div>
+                <div className='add_task_container'>
                     <AddTask
                         Add_task={Add_task}
                     />
+                    {
+                        task_form.length === 0 ? null :
+                            (
+                                <div className='task_list_title_text'>
+                                    <span>Task List</span>
+                                </div>
+                            )
+                    }
                 </div>
-                <DragDropContext onDragEnd={this.onDragEnd}>
-                        <Droppable droppableId='1'>
-                            {
-                                (provided)=> (
-                                    <div
-                                        ref={provided.innerRef}
-                                        {...provided.droppableProps}
-                                    >
-                                        {
-                                            task_form.map((item, index) => (
-                                                <div key={item.id}>
-                                                    <Task
-                                                        index = {index}
-                                                        item={item}
-                                                        Delete_task={Delete_task}
-                                                        Change_task={Change_task}
-                                                        Check_Task={Check_Task}
-                                                        Start_timer={Start_timer}
-                                                        Stop_timer={Stop_timer}
-                                                        general_timer={timer}
-                                                        taskProcess={taskProcess}
-                                                    />
-                                                </div>
-                                            ))
-                                        }
-                                        {provided.placeholder}
-                                    </div>
-                                )
-                            }
-                        </Droppable>
-                </DragDropContext>
+                {
+                    task_form.length === 0 ?
+                        (
+                            <WaitingTask/>
+                        ):
+                        (
+                            <DragDropContext onDragEnd={this.onDragEnd}>
+                                <Droppable droppableId='1'>
+                                    {
+                                        (provided)=> (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.droppableProps}
+                                            >
+                                                {
+                                                    task_form.map((item, index) => (
+                                                        <div key={item.id}>
+                                                            <Task
+                                                                index = {index}
+                                                                item={item}
+                                                                Delete_task={Delete_task}
+                                                                Change_task={Change_task}
+                                                                Check_Task={Check_Task}
+                                                                Start_timer={Start_timer}
+                                                                Stop_timer={Stop_timer}
+                                                                general_timer={timer}
+                                                                taskProcess={taskProcess}
+                                                            />
+                                                        </div>
+                                                    ))
+                                                }
+                                                {provided.placeholder}
+                                            </div>
+                                        )
+                                    }
+                                </Droppable>
+                            </DragDropContext>
+                        )
+                }
             </div>
         );
     }

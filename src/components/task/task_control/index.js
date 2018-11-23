@@ -6,18 +6,23 @@ import './style.css'
 
 class TaskControl extends Component {
     render() {
-        const {handleChangeRead, Delete_task, item} = this.props;
+        const {handleChangeRead, Delete_task, item, readOnly} = this.props;
         return (
             <div className='form_control_container'>
                 <div>
-                    <Button
-                        variant="fab"
-                        color="secondary"
-                        aria-label="Edit"
-                        onClick = {handleChangeRead}
-                    >
-                        <EditIcon/>
-                    </Button>
+                    {
+                        readOnly ?
+                            (
+                                <Button
+                                    variant="fab"
+                                    color="secondary"
+                                    aria-label="Edit"
+                                    onClick = {handleChangeRead}
+                                >
+                                    <EditIcon/>
+                                </Button>
+                            ) : null
+                    }
                 </div>
                 <div>
                     <Button

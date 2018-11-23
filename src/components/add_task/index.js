@@ -55,7 +55,7 @@ class AddTask extends Component {
         const {open, title, description} = this.state;
 
         return (
-            <div>
+            <div className='add_task_button_container'>
                 <div className='add_task_button'>
                     <Button variant="fab" color="primary" aria-label="Add" onClick = {this.handleOpen} className='add_button'>
                         <AddIcon />

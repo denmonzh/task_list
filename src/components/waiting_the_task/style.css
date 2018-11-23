@@ -1,0 +1,19 @@
+.main_waiting_container{
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+}
+
+.progress_waiting{
+    padding-top: 2%;
+}
+
+.text_waiting{
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Mukta', sans-serif;
+}
