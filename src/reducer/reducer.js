@@ -1,4 +1,4 @@
-import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK, START_TIMER, STOP_TIMER, CHANGE_PRIORITY} from "../actions/types";
+import {ADD_TASK, CHANGE_TASK, DELETE_TASK, CHECK_TASK, START_TIMER, STOP_TIMER, CHANGE_PRIORITY, UNMOUNT_TASK} from "../actions/types";
 
 const initialState = {
     task: [],
@@ -69,6 +69,12 @@ export default function TaskReducer(state = initialState, actions) {
             return{
                 ...state,
                 task:[...state.task],
+            };
+
+        case UNMOUNT_TASK:
+            return{
+                ...state,
+                timer: true
             };
         default:
             return {
